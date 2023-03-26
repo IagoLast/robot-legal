@@ -15,5 +15,5 @@ model Inquiry {
   name      String
   email     String
   message   String
-  response  String
+  response  String  @db.Text
 }
