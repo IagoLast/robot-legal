@@ -5,6 +5,7 @@ generator client {
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
+  shadowDatabaseUrl    = env("SHADOW_DATABASE_URL")
   relationMode = "prisma"
 }
 
@@ -14,4 +15,5 @@ model Inquiry {
   name      String
   email     String
   message   String
+  response  String
 }

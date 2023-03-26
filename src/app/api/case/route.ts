@@ -20,7 +20,7 @@ export async function POST(request: Request) {
   console.info("question", question);
 
   const newEntry = await prisma.inquiry.create({
-    data: { name, email, message: question },
+    data: { name, email, message: question, response: "" },
   });
 
   try {
@@ -42,6 +42,16 @@ export async function POST(request: Request) {
     ${question}
     `,
     });
+
+    await prisma.inquiry.update({
+      where: {
+        id: newEntry.id,
+      },
+      data: {
+        response: completion.data.choices[0].text,
+      },
+    });
+
     return NextResponse.json({ response: completion.data.choices[0].text });
   } catch (error) {
     console.log(error);
