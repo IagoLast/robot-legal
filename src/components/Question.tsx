@@ -31,8 +31,8 @@ export default function Question() {
           Preparando respuesta.
         </h2>
         <div className="max-w-lg mx-auto">
-          <p className="text-white text-lg leading-7">
-            Miles de robots están revisando el código civil para encontrar la
+          <p className="text-white text-lg leading-7 text-center">
+            Miles de robots están revisando montones de leyes para encontrar la
             respuesta a tu pregunta.
           </p>
         </div>
@@ -45,8 +45,8 @@ export default function Question() {
       <h2 className="text-3xl font-extrabold text-white mb-8 text-center">
         Respuesta
       </h2>
-      <div className="max-w-lg mx-auto">
-        <p className="text-white text-lg leading-7">{response}</p>
+      <div className="max-w-xl mx-auto bg-white p-16 rounded">
+        <p className="text-lg leading-7">{response}</p>
       </div>
     </div>
   ) : (
