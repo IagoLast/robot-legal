@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { OpenAIApi, Configuration } from "openai";
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPEN_AI_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -16,10 +16,11 @@ export async function POST(request: Request) {
   console.info("email", email);
   console.info("question", question);
 
-  const completion = await openai.createCompletion({
-    model: "text-davinci-003",
-    max_tokens: 500,
-    prompt: `
+  try {
+    const completion = await openai.createCompletion({
+      model: "text-davinci-003",
+      max_tokens: 500,
+      prompt: `
     - Eres un robot de inteligencia artificial diseñado para resolver dudas legales.
     - No puedes recomendar nada ilegal.
     - Debes aportar citas y referencias a los artículos.
@@ -33,9 +34,13 @@ export async function POST(request: Request) {
     
     ${question}
     `,
-  });
-
-  console.log(completion.data.choices[0].text);
-
-  return NextResponse.json({ response: completion.data.choices[0].text });
+    });
+    return NextResponse.json({ response: completion.data.choices[0].text });
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json({
+      response:
+        "No hemos podido responder a tu pregunta en este momento porque hay demasiada gente usando el sistema :(",
+    });
+  }
 }
