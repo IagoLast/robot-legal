@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { OpenAIApi, Configuration } from "openai";
 
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 const configuration = new Configuration({
   apiKey: process.env.OPEN_AI_KEY,
 });
@@ -15,6 +18,10 @@ export async function POST(request: Request) {
   console.info("name", name);
   console.info("email", email);
   console.info("question", question);
+
+  const newEntry = await prisma.inquiry.create({
+    data: { name, email, message: question },
+  });
 
   try {
     const completion = await openai.createCompletion({
