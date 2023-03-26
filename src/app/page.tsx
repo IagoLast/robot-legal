@@ -1,91 +1,155 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "./page.module.css";
+import Question from "@/components/Question";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
+    <main>
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold leading-tight text-gray-900">
+            Robot legal
+          </h1>
+        </div>
+      </header>
+
+      <section className="bg-blue-700 flex items-center justify-center h-screen">
+        <div className="text-center text-white">
+          <h2 className="text-4xl font-extrabold tracking-tight mb-4">
+            Resuelve tus dudas legales al instante
+          </h2>
+          <p className="text-lg mb-8">
+            Robot legal es la primera plataforma que resuelve tus dudas legales
+            en segundos utilizando inteligencia artificial.
+          </p>
           <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#questions"
+            className="bg-white text-blue-700 py-3 px-8 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
+            Hacer una pregunta
           </a>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+      <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+            ¿Cómo funciona Robot legal?
+          </h2>
+          <div className="flex flex-wrap justify-center items-center mb-16">
+            <div className="max-w-sm mx-auto  px-4">
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                Introduce tus datos y explícanos tu caso en detalle.
+              </h3>
+              <p className="text-base text-gray-500">
+                Proporciona algunos datos básicos y una descripción de tu caso.
+                Cuanta más información aportes más precisa será la respuesta.
+              </p>
+            </div>
+            <div className="max-w-sm mx-auto  px-4">
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                Recibe una respuesta de nuestra inteligencia artificial
+              </h3>
+              <p className="text-base text-gray-500">
+                Nuestra inteligencia artificial procesará tu caso y te ofrecerá
+                una respuesta precisa en cuestión de segundos.
+              </p>
+            </div>
+            <div className="max-w-sm mx-auto px-4">
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                Contamos con una red de abogados humanos para casos complicados
+              </h3>
+              <p className="text-base text-gray-500">
+                ¿Necesitas ayuda? Contamos con un grupo de abogados expertos que
+                te ayudarán a resolver tu caso.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <section
+        id="questions"
+        className="bg-blue-700 py-16 px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-lg mx-auto">
+            <Question />
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
+      <section className="py-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
+            ¿No sabes que preguntar? Aquí tienes algunas ideas:
           </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+           
+            <div className="text-gray-700 text-lg leading-7">
+              <p className="mb-4">
+                ¿Cuál es la legislación vigente en España en cuanto a la
+                privacidad de los datos personales?
+              </p>
+              <p className="mb-4">
+                ¿Puedo demandar a una empresa si no me paga el salario
+                correspondiente?
+              </p>
+            </div>
+           
+            <div className="text-gray-700 text-lg leading-7">
+              <p className="mb-4">
+                ¿Qué puedo hacer si mi casero se niega a devolver la fianza
+                después de que haya dejado el piso en perfecto estado?
+              </p>
+              <p className="mb-4">¿Cómo puedo registrar una marca en España?</p>
+            </div>
+           
+            <div className="text-gray-700 text-lg leading-7">
+              <p className="mb-4">
+                ¿Puedo reclamar una indemnización por un accidente laboral?
+              </p>
+              <p className="mb-4">
+                ¿Cómo puedo solicitar la nacionalidad española?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-gray-900 text-gray-400">
+        <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center mb-4 md:mb-0">
+            <span className="text-lg font-medium">Robot legal</span>
+          </div>
+          <nav className="mb-4 md:mb-0">
+            <ul className="flex space-x-4">
+              <li>
+                <a href="#" className="hover:text-white">
+                  Aviso Legal
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  Política de Privacidad
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  Términos y Condiciones
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="text-sm">
+            <p className="mb-1">
+              &copy; 2023 Robot legal. Todos los derechos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
     </main>
-  )
+  );
 }
