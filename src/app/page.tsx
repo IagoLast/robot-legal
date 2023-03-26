@@ -1,4 +1,5 @@
 import Question from "@/components/Question";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   return (
@@ -84,7 +85,6 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-           
             <div className="text-gray-700 text-lg leading-7">
               <p className="mb-4">
                 ¿Cuál es la legislación vigente en España en cuanto a la
@@ -95,7 +95,7 @@ export default function Home() {
                 correspondiente?
               </p>
             </div>
-           
+
             <div className="text-gray-700 text-lg leading-7">
               <p className="mb-4">
                 ¿Qué puedo hacer si mi casero se niega a devolver la fianza
@@ -103,7 +103,7 @@ export default function Home() {
               </p>
               <p className="mb-4">¿Cómo puedo registrar una marca en España?</p>
             </div>
-           
+
             <div className="text-gray-700 text-lg leading-7">
               <p className="mb-4">
                 ¿Puedo reclamar una indemnización por un accidente laboral?
@@ -147,6 +147,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <Analytics />
     </main>
   );
 }
