@@ -145,18 +145,13 @@ export default async function Home() {
           <nav className="mb-4 md:mb-0">
             <ul className="flex space-x-4">
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="/legal" className="hover:text-white">
                   Aviso Legal
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="/legal" className="hover:text-white">
                   Política de Privacidad
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Términos y Condiciones
                 </a>
               </li>
             </ul>
