@@ -32,8 +32,6 @@ export default function Question() {
         json.response
       )}`
     );
-
-    // setResponse(json.response);
   });
 
   if (form.formState.isSubmitting) {
@@ -42,10 +40,13 @@ export default function Question() {
         <h2 className="text-3xl font-extrabold text-white mb-8 text-center">
           Preparando respuesta.
         </h2>
-        <div role="status" className="grid place-items-center">
+        <div
+          role="status"
+          className="grid justify-center  place-items-center max-w-screen-md mx-auto my-8"
+        >
           <svg
             aria-hidden="true"
-            className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600 mx-auto"
+            className="w-8 h-8 mr-2 text-gray-200 animate-spin fill-blue-600 mx-auto"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +65,7 @@ export default function Question() {
         <div className="max-w-lg mx-auto">
           <p className="text-white text-lg leading-7 text-center">
             Miles de robots están revisando montones de leyes para encontrar la
-            respuesta a tu pregunta.
+            respuesta a tu pregunta tardaremos unos 20 segundos...
           </p>
         </div>
       </div>
@@ -95,7 +96,7 @@ export default function Question() {
           type="text"
           name="name"
           id="name"
-          className="border border-gray-400 p-2 w-full bg-white"
+          className="border border-gray-400 p-2 w-full bg-white rounded"
         />
       </div>
       <div className="mb-4">
@@ -107,7 +108,7 @@ export default function Question() {
           type="email"
           name="email"
           id="email"
-          className="border border-gray-400 p-2 w-full bg-white"
+          className="border border-gray-400 p-2 w-full bg-white rounded"
         />
       </div>
       <div className="mb-4">
@@ -119,7 +120,7 @@ export default function Question() {
           name="question"
           id="question"
           rows={4}
-          className="border border-gray-400 p-2 w-full bg-white"
+          className="border border-gray-400 p-2 w-full bg-white rounded"
         ></textarea>
       </div>
       <div className="text-center">
