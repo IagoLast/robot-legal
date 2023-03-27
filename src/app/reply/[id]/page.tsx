@@ -18,13 +18,11 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
     openGraph: {
       title: message,
       description: response,
-      url: `https://robot-legal.com/reply?q=${message}&a=${response}`,
+      url: `https://robot-legal.com/reply/${id}`,
       siteName: "robot-legal.com",
       images: [
         {
-          url: `https://robot-legal.com/api/static/og?q=${encodeURIComponent(
-            message
-          )}.png`,
+          url: `https://robot-legal.com/api/static/og/${id}`,
           width: 1200,
           height: 600,
           alt: "robot-legal.com",
@@ -37,11 +35,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       card: "summary_large_image",
       title: message,
       description: response,
-      images: [
-        `https://robot-legal.com/api/static/og?q=${encodeURIComponent(
-          message
-        )}.png`,
-      ],
+      images: [`https://robot-legal.com/api/static/og/${id}`],
     },
   };
 }
