@@ -19,11 +19,18 @@ export async function POST(request: Request) {
   console.info("email", email);
   console.info("question", question);
 
+  console.info("Persisting query");
+
   const newEntry = await prisma.inquiry.create({
     data: { name, email, message: question, response: "" },
   });
 
+  console.info("Query persisted");
+
+
   try {
+    console.info("Asking openAI");
+
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       max_tokens: 500,
@@ -42,6 +49,8 @@ export async function POST(request: Request) {
     ${question}
     `,
     });
+
+    console.info("OpenAI response received");
 
     await prisma.inquiry.update({
       where: {
