@@ -1,6 +1,21 @@
 import Question from "@/components/Question";
 import { Analytics } from "@vercel/analytics/react";
 
+export async function generateMetadata({ params, searchParams }: any) {
+  return {
+    title: "Robot Legal",
+    description: "Resuelve tus dudas legales con inteligencia artificial",
+    openGraph: {
+      title: "Robot Legal",
+      description: "Resuelve tus dudas legales con inteligencia artificial",
+      url: `https://robot-legal.com`,
+      siteName: "robot-legal.com",
+      locale: "es",
+      type: "website",
+    },
+  };
+}
+
 export default function Home() {
   return (
     <main>
