@@ -16,6 +16,12 @@ export async function generateMetadata({ params, searchParams }: any) {
       locale: "es",
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: "Robot Legal",
+      description: "Resuelve tus dudas legales con inteligencia artificial.",
+      images: [`https://robot-legal.com/img/robot-legal.png`],
+    },
   };
 }
 
@@ -58,7 +64,7 @@ export default async function Home() {
             ¿Cómo funciona Robot legal?
           </h2>
           <div className="flex flex-wrap justify-center items-center mb-16">
-            <div className="max-w-sm mx-auto  px-4">
+            <div className="max-w-sm mx-auto px-4">
               <h3 className="text-lg font-medium text-gray-900 mb-2">
                 Introduce tus datos y explícanos tu caso en detalle.
               </h3>
@@ -67,7 +73,7 @@ export default async function Home() {
                 Cuanta más información aportes más precisa será la respuesta.
               </p>
             </div>
-            <div className="max-w-sm mx-auto  px-4">
+            <div className="max-w-sm mx-auto px-4">
               <h3 className="text-lg font-medium text-gray-900 mb-2">
                 Recibe una respuesta de nuestra inteligencia artificial
               </h3>
