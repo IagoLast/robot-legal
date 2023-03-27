@@ -92,15 +92,6 @@ export default async function Reply({ params }: { params: { id: string } }) {
             >
               Hacer una pregunta
             </Link>
-            <Link
-              target="_blank"
-              className="ml-4 bg-white text-blue-900 py-3 px-8 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300"
-              href={`https://twitter.com/intent/tweet?text=He usado robot-legal.com para resolver una duda!?&url=https://robot-legal.com/?q=${encodeURIComponent(
-                message
-              )}&a=${encodeURIComponent(response)}`}
-            >
-              ¿Te ha servido? Ayúdanos con un tweet 🙏
-            </Link>
           </div>
         </div>
       </section>

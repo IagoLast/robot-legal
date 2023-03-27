@@ -1,5 +1,8 @@
 import Question from "@/components/Question";
+import { PrismaClient } from "@prisma/client";
 import { Analytics } from "@vercel/analytics/react";
+import Link from "next/link";
+const prisma = new PrismaClient();
 
 export async function generateMetadata({ params, searchParams }: any) {
   return {
@@ -16,7 +19,11 @@ export async function generateMetadata({ params, searchParams }: any) {
   };
 }
 
-export default function Home() {
+export default async function Home() {
+  const inquiries = await prisma.inquiry.findMany({
+    take: 12,
+  });
+
   return (
     <main>
       <header className="bg-white shadow">
@@ -94,39 +101,21 @@ export default function Home() {
       </section>
 
       <section className="py-16 px-4 sm:px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-screen-md mx-auto">
           <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-            ¿No sabes que preguntar? Aquí tienes algunas ideas:
+            Preguntas reales de otros usuarios
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-gray-700 text-lg leading-7">
-              <p className="mb-4">
-                ¿Cuál es la legislación vigente en España en cuanto a la
-                privacidad de los datos personales?
-              </p>
-              <p className="mb-4">
-                ¿Puedo demandar a una empresa si no me paga el salario
-                correspondiente?
-              </p>
-            </div>
-
-            <div className="text-gray-700 text-lg leading-7">
-              <p className="mb-4">
-                ¿Qué puedo hacer si mi casero se niega a devolver la fianza
-                después de que haya dejado el piso en perfecto estado?
-              </p>
-              <p className="mb-4">¿Cómo puedo registrar una marca en España?</p>
-            </div>
-
-            <div className="text-gray-700 text-lg leading-7">
-              <p className="mb-4">
-                ¿Puedo reclamar una indemnización por un accidente laboral?
-              </p>
-              <p className="mb-4">
-                ¿Cómo puedo solicitar la nacionalidad española?
-              </p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 text-center">
+            {inquiries.map((i) => (
+              <Link
+                className="text-blue-700 underline cursor-pointer"
+                href={`reply/${i.id}`}
+                key={i.id}
+              >
+                {i.message}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
