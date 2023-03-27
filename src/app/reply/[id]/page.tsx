@@ -1,5 +1,6 @@
 import { Inquiry, Prisma, PrismaClient } from "@prisma/client";
 import Link from "next/link";
+
 export const dynamic = "force-dynamic";
 
 const prisma = new PrismaClient();
@@ -22,7 +23,9 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       siteName: "robot-legal.com",
       images: [
         {
-          url: `https://robot-legal.com/api/static/og?q=${encodeURIComponent(inquiry.message)}`,
+          url: `https://robot-legal.com/api/static/og?q=${encodeURIComponent(
+            inquiry.message
+          )}`,
           width: 1200,
           height: 600,
           alt: "robot-legal.com",
@@ -35,7 +38,11 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       card: "summary_large_image",
       title: message,
       description: response,
-      images: [`https://robot-legal.com/api/static/og?q=${encodeURIComponent(inquiry.message)}`],
+      images: [
+        `https://robot-legal.com/api/static/og?q=${encodeURIComponent(
+          inquiry.message
+        )}`,
+      ],
     },
   };
 }

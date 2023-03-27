@@ -1,8 +1,6 @@
-import { Inquiry, PrismaClient } from "@prisma/client";
 import { ImageResponse } from "@vercel/og";
 
 export const runtime = "edge";
-const prisma = new PrismaClient();
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
