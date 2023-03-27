@@ -12,7 +12,7 @@ export async function generateMetadata({ params, searchParams }: any) {
       siteName: "robot-legal.com",
       images: [
         {
-          url: `https://robot-legal-com/api/static/og?q=${searchParams.q}?a=${searchParams.a}`,
+          url: `https://robot-legal.com/api/static/og?q=${searchParams.q}`,
           width: 1200,
           height: 600,
           alt: "robot-legal.com",
@@ -26,7 +26,7 @@ export async function generateMetadata({ params, searchParams }: any) {
       title: searchParams.q,
       description: searchParams.a,
       images: [
-        `https://robot-legal-com/api/static/og?q=${searchParams.q}?a=${searchParams.a}`,
+        `https://robot-legal.com/api/static/og?q=${searchParams.q}`,
       ],
     },
   };
