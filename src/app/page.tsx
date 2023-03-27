@@ -6,7 +6,6 @@ import Link from "next/link";
 const prisma = new PrismaClient();
 export const dynamic = "force-dynamic";
 
-
 export async function generateMetadata() {
   return {
     title: "Robot Legal",
@@ -39,6 +38,7 @@ export async function generateMetadata() {
 export default async function Home() {
   const inquiries = await prisma.inquiry.findMany({
     take: 12,
+    orderBy: { createdAt: "desc" },
   });
 
   return (
