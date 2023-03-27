@@ -2,9 +2,12 @@ import Question from "@/components/Question";
 import { PrismaClient } from "@prisma/client";
 import { Analytics } from "@vercel/analytics/react";
 import Link from "next/link";
-const prisma = new PrismaClient();
 
-export async function generateMetadata({ params, searchParams }: any) {
+const prisma = new PrismaClient();
+export const dynamic = "force-dynamic";
+
+
+export async function generateMetadata() {
   return {
     title: "Robot Legal",
     description: "Resuelve tus dudas legales con inteligencia artificial",
