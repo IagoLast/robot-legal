@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       siteName: "robot-legal.com",
       images: [
         {
-          url: `https://robot-legal.com/api/static/og/${id}`,
+          url: `https://robot-legal.com/api/static/og?q=${encodeURIComponent(inquiry.message)}`,
           width: 1200,
           height: 600,
           alt: "robot-legal.com",
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
       card: "summary_large_image",
       title: message,
       description: response,
-      images: [`https://robot-legal.com/api/static/og/${id}`],
+      images: [`https://robot-legal.com/api/static/og?q=${encodeURIComponent(inquiry.message)}`],
     },
   };
 }

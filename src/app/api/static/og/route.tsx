@@ -1,17 +1,12 @@
 import { Inquiry, PrismaClient } from "@prisma/client";
 import { ImageResponse } from "@vercel/og";
 
-// export const runtime = "edge";
+export const runtime = "edge";
 const prisma = new PrismaClient();
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  const { id } = params;
-  const inquiry = (await prisma.inquiry.findUnique({
-    where: { id: parseInt(id) },
-  })) as Inquiry;
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  const q = url.searchParams.get("q");
 
   return new ImageResponse(
     (
@@ -40,7 +35,7 @@ export async function GET(
             fontSize: 32,
           }}
         >
-          {inquiry.message}
+          {q}
         </h2>
       </div>
     ),
