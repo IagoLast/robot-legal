@@ -10,6 +10,7 @@ export async function GET(request: Request) {
     (
       <div
         style={{
+          padding: 12,
           background: "white",
           width: "100%",
           height: "100%",
