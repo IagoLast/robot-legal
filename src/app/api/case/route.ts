@@ -27,7 +27,6 @@ export async function POST(request: Request) {
 
   console.info("Query persisted");
 
-
   try {
     console.info("Asking openAI");
 
@@ -61,7 +60,10 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json({ response: completion.data.choices[0].text });
+    return NextResponse.json({
+      question,
+      response: completion.data.choices[0].text,
+    });
   } catch (error) {
     console.error(error);
     return NextResponse.json({
