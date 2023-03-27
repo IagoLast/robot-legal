@@ -63,7 +63,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ response: completion.data.choices[0].text });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return NextResponse.json({
       response:
         "No hemos podido responder a tu pregunta en este momento porque hay demasiada gente usando el sistema :(",
