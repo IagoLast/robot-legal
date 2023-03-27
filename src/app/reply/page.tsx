@@ -1,4 +1,5 @@
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params, searchParams }: any) {
   return {
