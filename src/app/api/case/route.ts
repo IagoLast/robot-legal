@@ -63,7 +63,9 @@ export async function POST(request: Request) {
     return NextResponse.json({
       question,
       response: completion.data.choices[0].text,
+      id: newEntry.id,
     });
+    
   } catch (error) {
     console.error(error);
     return NextResponse.json({

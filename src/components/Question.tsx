@@ -27,11 +27,7 @@ export default function Question() {
       };
     });
 
-    router.push(
-      `/reply?q=${encodeURIComponent(json.question)}&a=${encodeURIComponent(
-        json.response
-      )}`
-    );
+    router.push(`/reply/${json.id}?`);
   });
 
   if (form.formState.isSubmitting) {
