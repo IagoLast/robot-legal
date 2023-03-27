@@ -15,6 +15,14 @@ export async function generateMetadata({ params, searchParams }: any) {
       siteName: "robot-legal.com",
       locale: "es",
       type: "website",
+      images: [
+        {
+          url: "https://robot-legal.com/img/robot-legal.png",
+          width: 1200,
+          height: 600,
+          alt: "robot-legal.com",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
